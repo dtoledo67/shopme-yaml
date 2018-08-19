@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  name: "customers"
+  labels:
+    nirmata.io/service.name: "customers"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "customers"
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  type: "ClusterIP"
+  selector:
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "customers"
+  ports:
+  - port: 80
+    protocol: "TCP"

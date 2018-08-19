@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  name: "loyalty"
+  labels:
+    nirmata.io/service.name: "loyalty"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "loyalty"
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  type: "ClusterIP"
+  selector:
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "loyalty"
+  ports:
+  - port: 80
+    protocol: "TCP"

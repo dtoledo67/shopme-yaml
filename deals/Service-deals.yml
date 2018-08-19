@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  name: "deals"
+  labels:
+    nirmata.io/service.name: "deals"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "deals"
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  type: "ClusterIP"
+  selector:
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "deals"
+  ports:
+  - port: 80
+    protocol: "TCP"

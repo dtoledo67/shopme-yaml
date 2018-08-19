@@ -1,0 +1,41 @@
+---
+kind: "Deployment"
+apiVersion: "extensions/v1beta1"
+metadata:
+  annotations: {}
+  name: "deals"
+  labels:
+    nirmata.io/deployment.name: "deals"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "deals"
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      nirmata.io/application.name: "shopme"
+      nirmata.io/component: "deals"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        nirmata.io/deployment.name: "deals"
+        nirmata.io/application.name: "shopme"
+        nirmata.io/component: "deals"
+    spec:
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      containers:
+      - name: "deals"
+        image: "nirmata/deals:latest"
+        command: []
+        args: []
+        ports:
+        - containerPort: 80
+          protocol: "TCP"

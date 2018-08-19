@@ -1,0 +1,27 @@
+---
+kind: "NetworkPolicy"
+apiVersion: "extensions/v1beta1"
+spec:
+  podSelector:
+    matchLabels:
+      nirmata.io/application.name: "shopme"
+      nirmata.io/component: "orders"
+    matchExpressions: []
+  policyTypes:
+  - "Ingress"
+  - "Egress"
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          nirmata.io/application.name: "shopme"
+        matchExpressions: []
+  egress:
+  - {}
+metadata:
+  annotations: {}
+  name: "orders"
+  labels:
+    nirmata.io/networkpolicy.name: "orders"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "orders"

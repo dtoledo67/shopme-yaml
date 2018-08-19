@@ -1,0 +1,41 @@
+---
+kind: "Deployment"
+apiVersion: "extensions/v1beta1"
+metadata:
+  annotations: {}
+  name: "customers"
+  labels:
+    nirmata.io/deployment.name: "customers"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "customers"
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      nirmata.io/application.name: "shopme"
+      nirmata.io/component: "customers"
+    matchExpressions: []
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        nirmata.io/deployment.name: "customers"
+        nirmata.io/application.name: "shopme"
+        nirmata.io/component: "customers"
+    spec:
+      terminationGracePeriodSeconds: 30
+      nodeSelector: {}
+      containers:
+      - name: "customers"
+        image: "nirmata/customer:latest"
+        command: []
+        args: []
+        ports:
+        - containerPort: 80
+          protocol: "TCP"

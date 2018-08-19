@@ -1,0 +1,20 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  name: "recommendations"
+  labels:
+    nirmata.io/service.name: "recommendations"
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "recommendations"
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  type: "ClusterIP"
+  selector:
+    nirmata.io/application.name: "shopme"
+    nirmata.io/component: "recommendations"
+  ports:
+  - port: 80
+    protocol: "TCP"
