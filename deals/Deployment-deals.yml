@@ -9,7 +9,7 @@ metadata:
     nirmata.io/application.name: "shopme"
     nirmata.io/component: "deals"
 spec:
-  replicas: 1
+  replicas: 3
   revisionHistoryLimit: 5
   selector:
     matchLabels:
