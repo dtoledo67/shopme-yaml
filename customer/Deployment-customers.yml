@@ -33,9 +33,14 @@ spec:
       nodeSelector: {}
       containers:
       - name: "customers"
-        image: "nirmata/customer:blue"
+        image: "nirmata/customer:green"
         command: []
         args: []
+        resources:
+          limits:
+            memory: "512Mi"
+          requests:
+            memory: "256Mi"
         ports:
         - containerPort: 80
           protocol: "TCP"
