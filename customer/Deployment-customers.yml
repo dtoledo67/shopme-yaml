@@ -33,7 +33,7 @@ spec:
       nodeSelector: {}
       containers:
       - name: "customers"
-        image: "nirmata/customer:latest"
+        image: "nirmata/customer:blue"
         command: []
         args: []
         ports:
